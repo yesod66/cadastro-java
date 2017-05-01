@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+<h:form>
+<p:panel header="Incluir Sistema" >
+	<p:fieldset legend="Dados do sistema" >
+	  <p:panelGrid columns="2" cellpadding="5">
+	  
+	  	<p:outputLabel for="descricao" value="Descrição "/>
+	  	<p:inputText id="descricao" value="#{cadastroSistemaBean.sistema.descricao}" required="true"/>
+	  	
+	  	<p:outputLabel for="sigla" value="Sigla"/>
+	  	<p:inputText id="sigla" value="#{cadastroSistemaBean.sistema.sigla}" required="true"/>
+	  	
+	  	<p:outputLabel for="email" value="E-mail de atendimento do sistema"/>
+	  	<p:inputText value="#{cadastroSistemaBean.sistema.email}" id="email"/>
+	  	
+	  	<p:outputLabel for="url" value="URL"/>
+	  	<p:inputText value="#{cadastroSistemaBean.sistema.url}" id="url"/>
+	  
+	  </p:panelGrid>
+	</p:fieldset>
+	
+	<p:toolbarGroup>
+	  	<p:button value="Voltar" outcome="/ResultadoPesquisa"/>
+	  	<p:commandButton value="Salvar" ajax="false" action="#{cadastroSistemaBean.salvar()}"/>
+	</p:toolbarGroup>
+	
+	</p:panel>
+</h:form>
+</body> 
+</html>

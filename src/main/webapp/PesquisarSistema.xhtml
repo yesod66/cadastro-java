@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+
+<h:form>
+   <p:panel header="Pesquisar Sistema" >
+	<p:fieldset legend="Filtro de consulta" >
+	  <p:panelGrid columns="2" cellpadding="5">
+	  
+	  	<h:outputLabel for="descricao" value="Descrição "/>
+	  	<p:inputText id="descricao" value="#{pesquisaSistemaBean.filtro.descricao}"/>
+	  	
+	  	<p:outputLabel for="sigla" value="Sigla"/>
+	  	<p:inputText id="sigla" value="#{pesquisaSistemaBean.filtro.sigla}"/>
+	  	
+	  	<p:outputLabel for="email" value="E-mail de atendimento do sistema"/>
+	  	<p:inputText id="email" value="#{pesquisaSistemaBean.filtro.email}"/>
+	  
+	  </p:panelGrid>
+	</p:fieldset>
+	<p:toolbarGroup>
+	  	
+	  		
+	  	<p:commandButton onclick="#{pesquisaSistemaBean.inicializar()}" value="Pesquisar" ajax="false" action="ResultadoPesquisa.xhtml?faces-redirect=true"/>  	
+	  	
+	  		
+	  	
+	  	<p:commandButton value="Limpar" />
+	  	<p:button value="Novo Sistema" outcome="/IncluirSistema" />
+	</p:toolbarGroup>
+	</p:panel>
+
+</h:form>
+
+</body> 
+</html>

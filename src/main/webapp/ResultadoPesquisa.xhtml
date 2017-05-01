@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head>
+</h:head> 
+<body> 
+
+<h:form>
+	
+
+<p:panel header="Pesquisar Sistema">
+
+	<p:fieldset legend="Filtro de Consulta">
+	<p:panelGrid columns="2">
+		<p:outputLabel for="descricao" value="Descrição"/>
+		<p:inputText id="descricao" value="#{pesquisaSistemaBean.filtro.descricao}"/>
+		
+		<p:outputLabel for="sigla" value="Sigla"/>
+		<p:inputText id="sigla" value="#{pesquisaSistemaBean.filtro.sigla}"/>
+		
+		<p:outputLabel for="email" value="E-mail de atendimento do sistema"/>
+		<p:inputText id="email" value="#{pesquisaSistemaBean.filtro.email}"/>
+	</p:panelGrid>
+	</p:fieldset>
+	<br/><br/>
+
+
+	<p:fieldset legend="Resultado da consulta" rendered="#{pesquisaSistemaBean.showTable}">
+		<p:dataTable id="sistemaTable" value="#{pesquisaSistemaBean.sistemaFiltrado}" 
+		var="sistema" rows="5" paginator="true" paginatorPosition="bottom"
+		emptyMessage="Nada encontrado." 
+		 >
+		
+		<p:column headerText="Descrição">
+			<h:outputText value="#{sistema.descricao}" />
+		</p:column>
+		<p:column headerText="Sigla">
+			<h:outputText value="#{sistema.sigla}"/>
+		</p:column>
+		<p:column headerText="E-mail de atendimento">
+			<h:outputText value="#{sistema.email}" />
+		</p:column>
+		<p:column headerText="URL">
+			<h:outputText value="#{sistema.url}" />
+		</p:column>
+		<p:column headerText="Status">
+			<h:outputText value="#{sistema.status}" />
+		</p:column>
+		<p:column headerText="Ações"/>
+		</p:dataTable>
+	</p:fieldset>
+  	<br/>
+  
+  	<p:toolbarGroup>
+		<p:commandButton value="Pesquisar" action="#{pesquisaSistemaBean.pesquisar}" update="@form"/>
+		<p:commandButton value="Limpar" action="#{pesquisaSistemaBean.limpar}" update="@form"/>
+		<p:button value="Novo Sistema" outcome="/IncluirSistema"/>
+	</p:toolbarGroup>
+
+</p:panel>
+</h:form>
+</body> 
+</html>

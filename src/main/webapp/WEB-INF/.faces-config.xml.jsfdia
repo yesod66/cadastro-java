@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#ResultadoPesquisa.xhtml"
+  PATH="/ResultadoPesquisa.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#PesquisarSistema.xhtml"
+  PATH="/PesquisarSistema.xhtml" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#PesquisarSistema.xhtml:0" NAME="item"
+   PATH="/PesquisarSistema.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="ResultadoPesquisa::#ResultadoPesquisa.xhtml"
+    NAME="output" PATH="/ResultadoPesquisa.xhtml"
+    TARGET="rules:#ResultadoPesquisa.xhtml" TITLE="ResultadoPesquisa" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+</PROCESS>
